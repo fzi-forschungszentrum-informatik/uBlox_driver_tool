@@ -1,0 +1,23 @@
+<launch>
+
+    <arg name="serial_device" default="/dev/ttyACM1" />
+    <arg name="config" default="$(find sensor_ublox)/res/config_m8.yaml" />
+    <arg name="base_config" default="$(find sensor_ublox)/res/m8p_base_config.ublox" />
+    <arg name="verbosity" default="info" />
+    <arg name="nodelet_manager_name" default="nodelet_manager_ublox_m8"/>
+    <arg name="start_nodelet_manager" default="true"/>
+
+    <!-- Nodelet manager (if enabled) -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="screen"
+          if="$(arg start_nodelet_manager)"/>
+
+    <!-- UbloxM8 -->
+    <node pkg="nodelet" type="nodelet" name="ublox_m8"
+          args="load sensor_ublox_ros_tool/UbloxM8Nodelet $(arg nodelet_manager_name)" output="screen" required="true">
+        <param name="serial_device_path" value="$(arg serial_device)" />
+        <param name="config" value="$(arg config)" />
+        <param name="base_config" value="$(arg base_config)" /> 
+        <param name="verbosity" value="$(arg verbosity) " />
+    </node>
+
+</launch>

@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+from rosinterface_handler.interface_generator_catkin import *
+
+gen = InterfaceGenerator()
+
+# Add your desired parameters here. All required headers will be generated from this.
+
+# Required arguments:
+#   - name (Variable name)
+#   - paramtype ['std::string', 'int', 'bool', 'float','double', 'std::vector<...>', 'std::map<std::string , ...>']
+#   - description
+# Optional arguments:
+#   - default, min, max
+#   - configurable
+#   - global_scope
+#   - constant (can not be set via rosparam)
+# Attention:
+# - If no default value is given, you need to specify one in your launch file
+# - Global parameters, vectors and maps can not be configurable
+# - Global parameters, vectors and maps can not have a default, min or max value
+# - !!!IMPORTANT this file must be executable !!!
+
+
+
+# ROS-specific
+gen.add("msg_queue_size", paramtype='int', description="Queusize for publisher", default=5, min=1)
+gen.add_verbosity_param(configurable=True)
+gen.add("frame_id", paramtype='std::string', description="Frame ID for the sensor measurements", default="gnss")
+
+
+# Diagnostics 
+gen.add("diagnostic_updater_name", paramtype='std::string', description="Name of diagnostic updater.", default="UbloxM8Updater") 
+gen.add("diagnostic_updater_hardware_id", paramtype='std::string', description="Identifier for hardware.", default="UbloxM8") 
+gen.add("diagnostic_updater_rate_tolerance", paramtype='double', description="Tolerance with which bounds must be satisfied.", default=1) 
+
+ 
+# Your Params here
+gen.add("msg_base_name", paramtype='std::string', description="Base name for all ublox topics", default="/sensor/ublox")
+gen.add("serial_device_path", paramtype='std::string', description="The device path for the u-blox device", default="/dev/ttyACM0")
+gen.add("config_file", paramtype='std::string', description="The u-blox device configuration file", default="/tmp/config.yaml")
+gen.add("base_config_file", paramtype='std::string', description="The u-blox device configuration file", default="/tmp/base_config.ublox")
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be UbloxM8Config)
+exit(gen.generate("sensor_ublox_ros_tool", "ublox_m8", "UbloxM8"))

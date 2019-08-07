@@ -1,0 +1,12 @@
+# ROS-specific
+msg_queue_size: 6
+verbosity: info
+
+# Whether to dismiss altitude measurements for sending th TF frame
+use_ground_plane_projection: true
+publish_map_tf: false
+publish_time: true
+publish_vehiclemotion: true
+publish_gps: true
+publish_imu: true
+publish_odometry: true

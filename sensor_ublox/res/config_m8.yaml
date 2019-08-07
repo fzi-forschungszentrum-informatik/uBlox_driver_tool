@@ -1,0 +1,23 @@
+ublox_m8_config:
+  device:
+    baud_rate: 38400
+  gnss:
+    rate: 5
+  messages:
+    # required by ROS tool
+    nav_pvt: 1
+    nav_status: 1
+    mon_msgpp: 1
+    # additional messages
+    #nav_sol: 1
+    #nav_posecef: 1
+    #nav_dop: 1
+    #nav_timegps: 1
+    #nav_timeutc: 1
+    #nav_sat: 1
+    rxm_rawx: 1
+    rxm_sfrbx: 1
+    nav_sbas: 1
+  dgps:
+    enable: false
+    device_path: /tmp/ublox_rtcm.{USER}

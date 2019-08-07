@@ -1,0 +1,2 @@
+#version=1.5
+include: "https://github.com/KIT-MRT/mrt_cmake_modules/blob/master/ci_templates/default_catkin_project.yml"

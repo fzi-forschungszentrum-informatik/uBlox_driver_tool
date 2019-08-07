@@ -1,0 +1,18 @@
+<!--<library path="lib/libm8t_nodelet">-->
+  <!--<class name="sensor_ublox_ros_tool/M8tNodelet"-->
+         <!--type="sensor_ublox_ros_tool::M8tNodelet" base_class_type="nodelet::Nodelet">-->
+    <!--<description>Driver for ublox sensor. Published raw data.</description>-->
+  <!--</class>-->
+<!--</library>-->
+<library path="lib/libublox_converter_nodelet">
+<class name="sensor_ublox_ros_tool/UbloxConverterNodelet"
+       type="sensor_ublox_ros_tool::UbloxConverterNodelet" base_class_type="nodelet::Nodelet">
+  <description>Converter for ublox raw data. Publishes ros msg types.</description>
+</class>
+</library>
+<library path="lib/libublox_m8_nodelet">
+<class name="sensor_ublox_ros_tool/UbloxM8Nodelet"
+       type="sensor_ublox_ros_tool::UbloxM8Nodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

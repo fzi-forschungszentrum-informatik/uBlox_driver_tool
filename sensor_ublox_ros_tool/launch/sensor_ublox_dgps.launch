@@ -1,0 +1,21 @@
+<launch>
+    <arg name="serial_device" default="/dev/ublox_m8" />
+    <arg name="msg_base_name" default="/sensor/ublox" />
+    <arg name="vehicle_tf_frame" default="vehicle" />
+    <arg name="sensor_tf_frame" default="sensor/ublox/gps" />
+
+    <!-- u-blox interface  -->
+    <include file="$(find sensor_ublox_ros_tool)/launch/ublox_m8_node.launch">
+        <arg name="serial_device" value="$(arg serial_device)" />
+        <arg name="config" value="$(find sensor_ublox)/res/config_m8_dgps.yaml" />
+        <arg name="verbosity" value="warning" />
+        <arg name="msg_base_name" value="$(arg msg_base_name)" />
+    </include>
+
+    <!-- Converter  -->
+    <include file="$(find sensor_ublox_ros_tool)/launch/ublox_converter_node.launch" >
+        <arg name="msg_base_name" value="$(arg msg_base_name)" />
+        <arg name="vehicle_tf_frame" value="$(arg vehicle_tf_frame)" />
+        <arg name="sensor_tf_frame" value="$(arg sensor_tf_frame)" />
+    </include>
+</launch>

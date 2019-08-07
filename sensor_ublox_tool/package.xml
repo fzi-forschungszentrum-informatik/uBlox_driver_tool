@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sensor_ublox_tool</name>
+  <version>0.0.0</version>
+  <description>Provides a demo for the sensor_ublox interface library</description>
+
+  <license>BSD</license>
+  <maintainer email="hendrik.koenigshof@kit.edu">Hendrik Königshof</maintainer>
+  <author email="andre-marcel.hellmund@kit.edu">Andre-Marcel Hellmund</author>
+  <url type="repository">https://github.com/fzi-forschungszentrum-informatik/uBlox_driver_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <test_depend>gtest</test_depend>
+  <depend>sensor_ublox</depend>
+  <depend>generic_logger</depend>
+  
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

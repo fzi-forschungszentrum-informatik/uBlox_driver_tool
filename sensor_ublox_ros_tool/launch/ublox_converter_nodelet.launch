@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="config" default="$(find sensor_ublox_ros_tool)/launch/params/ublox_converter_parameters.yaml" />
+  <arg name="ns" default="/sensor/radar"/>
+
+  <node pkg="nodelet" type="nodelet" name="ublox_converter" ns="$(arg ns)"
+        args="load sensor_ublox_ros_tool/UbloxConverterNodelet nodelet_manager_ublox" output="screen" required="true">
+    <rosparam command="load" file="$(arg config)"/>
+  </node>
+
+</launch>

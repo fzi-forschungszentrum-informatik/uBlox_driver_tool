@@ -1,0 +1,38 @@
+<package format="2">
+  <name>sensor_ublox_ros_tool</name>
+  <version>0.0.0</version>
+  <description>ROS wrapper for the sensor_ublox interface library</description>
+
+  <license>BSD</license>
+  <maintainer email="hendrik.koenigshof@kit.edu">Hendrik Königshof</maintainer>
+  <author email="andre-marcel.hellmund@kit.edu">Andre-Marcel Hellmund</author>
+  <url type="repository">https://github.com/fzi-forschungszentrum-informatik/uBlox_driver_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  
+  <build_depend>roscpp</build_depend>
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+  <depend>sensor_ublox</depend>
+  <depend>boost</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>gnss_coordinate_transform_ros</depend>
+  <depend>automated_driving_msgs</depend>
+  <depend>mrt_sensor_msgs_ros</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf</depend>
+  <depend>tf_conversions</depend>
+  <depend>utils_ros</depend>
+  <depend>rosinterface_handler</depend>
+  <depend>mapping_msgs_ros</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>std_msgs</depend>
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+  </export>
+</package>

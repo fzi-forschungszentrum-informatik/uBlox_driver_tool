@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="serial_device" default="/dev/ublox_m8" />
+  <arg name="config" default="$(find sensor_ublox)/res/config_m8.yaml" />
+  <arg name="base_config" default="$(find sensor_ublox)/res/m8p_base_config.ublox" />
+  <arg name="verbosity" default="debug" />
+  <arg name="msg_base_name" default="/sensor/ublox" />
+
+  <node pkg="sensor_ublox_ros_tool" type="ublox_m8" name="ublox_m8" output="log">
+    <param name="serial_device_path" value="$(arg serial_device)" />
+    <param name="config_file" value="$(arg config)" />
+    <param name="base_config_file" value="$(arg base_config)" /> 
+    <param name="verbosity" value="$(arg verbosity)" />
+    <param name="msg_base_name" value="$(arg msg_base_name)" />
+  </node>
+
+</launch>

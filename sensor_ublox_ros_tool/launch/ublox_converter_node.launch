@@ -1,0 +1,30 @@
+<launch>
+
+  <arg name="config" default="$(find sensor_ublox_ros_tool)/launch/params/ublox_converter_parameters.yaml" />
+  <arg name="msg_base_name" default="/sensor/ublox" />
+  <arg name="subscriber_msg_name" value="$(arg msg_base_name)/ubx_nav_pvt" />
+  <arg name="publisher_gps_msg_name" value="$(arg msg_base_name)/gps" />
+  <arg name="publisher_vehicle_motion_msg_name" value="$(arg msg_base_name)/motion_state" />
+  <arg name="publisher_time_msg_name" value="$(arg msg_base_name)/time" />
+  <arg name="publisher_imu_msg_name" value="$(arg msg_base_name)/imu" />
+  <arg name="publisher_constraint_msg_name" value="$(arg msg_base_name)/constraint" />
+  <arg name="publisher_odometry_msg_name" value="$(arg msg_base_name)/odometry" />
+
+  <arg name="vehicle_tf_frame" default="vehicle" />
+  <arg name="sensor_tf_frame" default="sensor/ublox/gps" />
+
+  <node pkg="sensor_ublox_ros_tool" type="ublox_converter_node" name="ublox_converter_node" ns="$(arg msg_base_name)" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+    <param name="subscriber_msg_name" value="$(arg subscriber_msg_name)" />
+    <param name="publisher_gps_msg_name" value="$(arg publisher_gps_msg_name)" />
+    <param name="publisher_vehicle_motion_msg_name" value="$(arg publisher_vehicle_motion_msg_name)" />
+    <param name="publisher_time_msg_name" value="$(arg publisher_time_msg_name)" />
+    <param name="publisher_imu_msg_name" value="$(arg publisher_imu_msg_name)" />
+    <param name="publisher_constraint_msg_name" value="$(arg publisher_constraint_msg_name)" />
+    <param name="publisher_odometry_msg_name" value="$(arg publisher_odometry_msg_name)" />
+    <param name="vehicle_tf_frame" value="$(arg vehicle_tf_frame)" />
+    <param name="sensor_tf_frame" value="$(arg sensor_tf_frame)" />
+
+  </node>
+
+</launch>
